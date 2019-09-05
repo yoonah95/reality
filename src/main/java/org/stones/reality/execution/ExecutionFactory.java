@@ -1,6 +1,8 @@
 package org.stones.reality.execution;
 
+
 import java.sql.Connection;
+
 
 public class ExecutionFactory {
 
@@ -13,8 +15,9 @@ public class ExecutionFactory {
 	public static ExecutionFactory getInstance() {
 		return instance;
 	}
-	
+
 	public IExecution getExecution(Connection con) {
 		return new Execution(con);
+
 	}
 }

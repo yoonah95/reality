@@ -10,6 +10,7 @@ public interface IExecution {
 	abstract void connection(String url,String username,String password);
 
 	abstract ResultSetInfo executeQuery(String sql);
+
 	
 	abstract void commit();
 	

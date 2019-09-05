@@ -8,6 +8,7 @@ public class ExecutionTest {
 
 	@Test
 	public void test() {
+
 		//IExecution e = ExecutionFactory.getInstance().getExecution();
 		//e.connection("jdbc:oracle:thin:@localhost:1521:xe","user01","user01");
 		//String plan = e.checkPlan("select * from order_m");
@@ -16,6 +17,7 @@ public class ExecutionTest {
 		 * String result = e.executeQuery("select * from order_m");
 		 * System.out.println(result);
 		 */
+
 	}
 
 }
