@@ -1,6 +1,7 @@
 package org.stones.reality.execution;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
 public class ExplainPlanFactory {
 	private static ExplainPlanFactory instance = new ExplainPlanFactory();
@@ -14,6 +15,20 @@ public class ExplainPlanFactory {
 	}
 
 	public IExplainPlan getExplainPlan(Connection con) {
-		return new OracleExplainPlan(con);
+		String dbmsName = "oracle";
+		
+		try {
+			dbmsName = con.getMetaData().getDatabaseProductName();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		switch(dbmsName) {
+		case "oracle" : return new OracleExplainPlan(con);
+		default : return new OracleExplainPlan(con); 
+		//case "postgres" : 
+		}
+		
 	}
 }

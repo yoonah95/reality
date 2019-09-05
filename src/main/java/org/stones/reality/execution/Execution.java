@@ -35,16 +35,13 @@ public class Execution implements IExecution {
 
 	}
 
-	@Override
-	public void connection(String url, String username, String password) {
-		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			con = DriverManager.getConnection(url, username, password);
-			System.out.println("연결되었습니다.");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
+	/*
+	 * @Override public void connection(String url, String username, String
+	 * password) { try { Class.forName("oracle.jdbc.driver.OracleDriver"); con =
+	 * DriverManager.getConnection(url, username, password);
+	 * System.out.println("연결되었습니다."); } catch (Exception e) { e.printStackTrace();
+	 * } }
+	 */
 
 	@Override
 	public void commit() {
@@ -85,6 +82,7 @@ public class Execution implements IExecution {
 
 			while (rs.next()) {
 				result.add(rs.getString(1));
+				System.out.println(rs.getString(1));
 
 				// sb.append(rs.getString(1) + "\n");
 

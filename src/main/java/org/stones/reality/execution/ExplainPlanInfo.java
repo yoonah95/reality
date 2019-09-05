@@ -30,7 +30,7 @@ public class ExplainPlanInfo {
 	private List<String> partitionStop = new ArrayList<String>();
 	private List<Integer> partitionId = new ArrayList<Integer>();
 	private List<Long> other = new ArrayList<Long>();
-	private List<String> disrtibution = new ArrayList<String>();
+	private List<String> distribution = new ArrayList<String>();
 
 	public StringBuffer getPlanDisplay() {
 		return planDisplay;
@@ -224,12 +224,13 @@ public class ExplainPlanInfo {
 		this.other = other;
 	}
 
-	public List<String> getDisrtibution() {
-		return disrtibution;
+	public List<String> getDistribution() {
+		return distribution;
 	}
 
-	public void setDisrtibution(List<String> disrtibution) {
-		this.disrtibution = disrtibution;
+	public void setDistribution(List<String> distribution) {
+		this.distribution = distribution;
 	}
+
 
 }

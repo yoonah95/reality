@@ -42,7 +42,7 @@ public class OracleExplainPlan implements IExplainPlan {
 	private List<String> partitionStop = new ArrayList<String>();
 	private List<Integer> partitionId = new ArrayList<Integer>();
 	private List<Long> other = new ArrayList<Long>();
-	private List<String> disrtibution = new ArrayList<String>();
+	private List<String> distribution = new ArrayList<String>();
 
 	@Override
 	public ExplainPlanInfo checkPlan(String sql) {
@@ -58,12 +58,13 @@ public class OracleExplainPlan implements IExplainPlan {
 				sb.append(rs.getString(1) + "\n");
 				explainPlanInfo.setPlanDisplay(sb);
 			}
-			rs = stmt.executeQuery("select statement_id,timestamp,remarks,operation,options,object_node"
+			rs = stmt.executeQuery("select statement_id,timestamp,remarks,operation,options,object_node,"
 					+ "object_owner,object_name,object_instance,object_type,optimizer,search_columns,id,"
 					+ "parent_id,position,cost,cardinality,bytes,other_tag,partition_start,partition_stop,"
 					+ "partition_id,other,distribution from plan_table");
 
 			while (rs.next()) {
+				System.out.println(rs.getString(2));
 				statementId.add(rs.getString("statement_id"));
 				timeStamp.add(rs.getDate("timestamp"));
 				remarks.add(rs.getString("remarks"));
@@ -87,7 +88,7 @@ public class OracleExplainPlan implements IExplainPlan {
 				partitionStop.add(rs.getString("partition_stop"));
 				partitionId.add(rs.getInt("partition_id"));
 				other.add(rs.getLong("other"));
-				disrtibution.add(rs.getString("disrtibution"));
+				distribution.add(rs.getString("distribution"));
 			}
 
 			explainPlanInfo.setStatementId(statementId);
@@ -113,7 +114,7 @@ public class OracleExplainPlan implements IExplainPlan {
 			explainPlanInfo.setPartitionStop(partitionStop);
 			explainPlanInfo.setPartitionId(partitionId);
 			explainPlanInfo.setOther(other);
-			explainPlanInfo.setDisrtibution(disrtibution);
+			explainPlanInfo.setDistribution(distribution);
 
 		} catch (Exception e) {
 			e.printStackTrace();
