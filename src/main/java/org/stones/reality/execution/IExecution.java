@@ -8,10 +8,8 @@ public interface IExecution {
 	 * @param password
 	 */
 	abstract void connection(String url,String username,String password);
-	
-	abstract String checkPlan(String sql);
-	
-	abstract String executeQuery(String sql);
+
+	abstract ResultSetInfo executeQuery(String sql);
 	
 	abstract void commit();
 	
