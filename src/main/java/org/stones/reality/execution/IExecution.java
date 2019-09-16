@@ -7,7 +7,6 @@ public interface IExecution {
 	 * @param username
 	 * @param password
 	 */
-	// abstract void connection(String url,String username,String password);
 
 	abstract ResultSetInfo executeQuery(String sql);
 

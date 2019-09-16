@@ -36,7 +36,6 @@ public class ExecutionTest {
 		
 		IExplainPlan explainPlan = ExplainPlanFactory.getInstance().getExplainPlan(conn);
 		explainPlan.checkPlan("select * from order_m");
-		
 
 
 	}

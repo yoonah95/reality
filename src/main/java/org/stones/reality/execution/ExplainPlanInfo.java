@@ -40,6 +40,7 @@ public class ExplainPlanInfo {
 		this.planDisplay = planDisplay;
 	}
 
+
 	public String getStatementId() {
 		return statementId;
 	}
@@ -228,10 +229,5 @@ public class ExplainPlanInfo {
 		return distribution;
 	}
 
-	public void setDistribution(String distribution) {
-		this.distribution = distribution;
-	}
-
-
-
+	
 }

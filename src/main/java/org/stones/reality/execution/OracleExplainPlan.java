@@ -1,7 +1,9 @@
 package org.stones.reality.execution;
 
 import java.sql.Connection;
+
 import java.sql.ResultSet;
+
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,7 @@ public class OracleExplainPlan implements IExplainPlan {
 		this.con = con;
 	}
 
+
 	// ExplainPlanInfo explainPlanInfo = null;
 
 	@Override
@@ -25,15 +28,19 @@ public class OracleExplainPlan implements IExplainPlan {
 		PlanHandler planHandler = new PlanHandler();
 		ExplainPlanInfo explainPlanInfo = new ExplainPlanInfo();
 
+
 		StringBuffer sb = new StringBuffer();
 		try {
 			stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+
 			stmt.executeQuery("explain plan set statement_id = " + 1 + " for " + sql);
+
 			rs = stmt.executeQuery("select * from table(dbms_xplan.display())");
 			while (rs.next()) {
 				sb.append(rs.getString(1) + "\n");
 				explainPlanInfo.setPlanDisplay(sb);
 			}
+
 			
 			rs = stmt.executeQuery("select statement_id,timestamp,remarks,operation,options,object_node,"
 					+ "object_owner,object_name,object_instance,object_type,optimizer,search_columns,id,"
@@ -72,12 +79,14 @@ public class OracleExplainPlan implements IExplainPlan {
 
 			}
 
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
 		planHandler.setExplainPlanInfo(planInfoList);
 		return planHandler;
+
 		// return sb.toString();
 	}
 }
