@@ -229,5 +229,10 @@ public class ExplainPlanInfo {
 		return distribution;
 	}
 
+	public void setDistribution(String distribution) {
+		this.distribution = distribution;
+		
+	}
+
 	
 }

@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class Execution implements IExecution {
 
 	Connection con = null;
@@ -55,7 +54,7 @@ public class Execution implements IExecution {
 	}
 
 	@Override
-  
+
 	public void rollback() {
 		try {
 			stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -108,6 +107,5 @@ public class Execution implements IExecution {
 		return resultInfo;
 
 	}
-
 
 }
